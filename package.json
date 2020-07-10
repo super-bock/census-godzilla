@@ -6,6 +6,11 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> ef8061a4... local data source
     "@turf/turf": "^5.1.6",
     "bootstrap": "^4.5.2",
     "d3": "^6.7.0",
@@ -24,6 +29,27 @@
     "react-sidebar": "^3.0.2",
     "react-simple-maps": "^2.1.2",
     "swiper": "^6.5.8"
+<<<<<<< HEAD
+=======
+=======
+=======
+    "d3-scale": "^3.2.1",
+>>>>>>> 593e49ec... local data source
+    "leaflet": "^1.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-leaflet": "^2.6.3",
+    "react-leaflet-choropleth": "^2.0.1",
+    "react-leaflet-universal": "^2.1.0",
+    "react-native-svg": "^12.1.0",
+<<<<<<< HEAD
+    "react-scripts": "3.4.1"
+>>>>>>> 2ff3dc9f... initial commit
+=======
+    "react-scripts": "3.4.1",
+    "react-simple-maps": "^2.1.2"
+>>>>>>> 593e49ec... local data source
+>>>>>>> ef8061a4... local data source
   },
   "scripts": {
     "start": "react-scripts start",
