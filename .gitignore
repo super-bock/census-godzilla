@@ -38,3 +38,18 @@ dist
 *.swp
 *.swo
 *.*~
+<<<<<<< HEAD
+=======
+=======
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+<<<<<<< HEAD
+>>>>>>> 2ff3dc9f... initial commit
+=======
+
+*~
+*.swp
+*.swo
+>>>>>>> d54d9bab... working class components
+>>>>>>> fa7489e9... working class components

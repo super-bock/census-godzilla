@@ -1,5 +1,8 @@
 import { intersect } from "@turf/turf";
+<<<<<<< HEAD
 import * as d3 from "d3";
+=======
+>>>>>>> d54d9bab... working class components
 
 export const matchAndStrip = (str, regex, strip, rep) => {
   if (regex) {
@@ -15,6 +18,7 @@ export const matchAndStrip = (str, regex, strip, rep) => {
   }
 };
 
+<<<<<<< HEAD
 export const fetchCensusData = (request) =>
   fetch(request).then((res) => res.json());
 
@@ -34,6 +38,18 @@ export const addData = (geo, data) => {
       //const newValue = newData[newKey];
       //console.log(newData, newValue, newKey);
       newFeature.properties["dataValue"] = newData;
+=======
+export const addData = (geo, data) => {
+  const newFeatures = [];
+  for (var i in geo.features) {
+    const newFeature = geo.features[i];
+    const geoId = geo.features[i].properties.GEO_ID.split("US")[1];
+    if (data[geoId]) {
+      const newData = data[geoId];
+      const newKey = Object.keys(newData);
+      const newValue = newData[newKey];
+      newFeature.properties["dataValue"] = newValue;
+>>>>>>> d54d9bab... working class components
       newFeatures.push(newFeature);
     }
   }
@@ -68,6 +84,7 @@ export const coordsToJSON = (coords) => {
   ];
   return poly;
 };
+<<<<<<< HEAD
 
 export const createRequest = (group, variable) => {
   const url = "https://better-census-api.com/";
@@ -220,3 +237,5 @@ function wrap(text, width) {
     }
   });
 }
+=======
+>>>>>>> d54d9bab... working class components
