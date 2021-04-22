@@ -85,6 +85,9 @@ export const coordsToJSON = (coords) => {
   return poly;
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 256fc825... functional components done
 
 export const createRequest = (group, variable) => {
   const url = "https://better-census-api.com/";
@@ -92,6 +95,7 @@ export const createRequest = (group, variable) => {
     url +
     "gettable?vintage=2018&dataset=acs5&group=" +
     group +
+<<<<<<< HEAD
     "&state=36&county=*&geography=county&key=32dd72aa5e814e89c669a4664fd31dcfc3df333d&variable=" +
     variable;
   return request;
@@ -239,3 +243,9 @@ function wrap(text, width) {
 }
 =======
 >>>>>>> d54d9bab... working class components
+=======
+    "&state=36,34,42&county=*&geography=county&key=32dd72aa5e814e89c669a4664fd31dcfc3df333d&variable=" +
+    variable;
+  return request;
+};
+>>>>>>> 256fc825... functional components done
