@@ -285,7 +285,6 @@ const DemoMap = (props) => {
   const [isLoaded, setIsLoaded] = useState();
   const [items, setItems] = useState();
   const [variables, setVariables] = useState();
-  const [raceData, setRaceData] = useState();
   const [mapVariable, setMapVariable] = useState();
   const [groupInfo, setGroupInfo] = useState();
   const [colorScale, setColorScale] = useState();
@@ -301,19 +300,16 @@ const DemoMap = (props) => {
     // const dataLayer = this.layerRef.current.leafletElement
     // dataLayer.clearLayers()
     const bounds = map.getBounds();
-    const geo = items;
     const bounds_poly = coordsToJSON([
       [bounds._northEast.lat, bounds._northEast.lng],
       [bounds._southWest.lat, bounds._southWest.lng],
     ]);
     const bounds_json = polygon(bounds_poly);
-    const polysOnScreen = getIntersect(bounds_json, geo);
+    const polysOnScreen = getIntersect(bounds_json, items);
     setOnScreen(polysOnScreen);
   };
 
   const updateColors = () => {
-    console.log("var", mapVariable);
-    console.log("items", items);
     const colorScale = scaleQuantile()
       .domain(onScreen.map((d) => d.properties.dataValue[mapVariable]))
       .range(colorRange);
@@ -356,21 +352,6 @@ const DemoMap = (props) => {
       setItems(items);
       console.log(items);
       setColorScale(() => coloScale);
-    });
-  };
-
-  const getRaceData = () => {
-    const raceTables = Object.keys(censusRace);
-    const request = createRequest("B03002", raceTables);
-    fetchCensusData(request).then((result) => {
-      let items = addData(US_counties, result.geoIdValue);
-      const targetItems = [];
-      for (let item of items) {
-        const itemCopy = { ...item };
-        targetItems.push(itemCopy.properties.dataValue);
-      }
-      const avgOfItems = avgObjects(targetItems);
-      setRaceData(targetItems);
     });
   };
 
@@ -463,7 +444,7 @@ const DemoMap = (props) => {
             };
           }}
         />
-        <BarPlot raceData={raceData} />
+        <BarPlot onScreen={onScreen} />
         <Legend quantiles={quantiles} colorRange={colorRange} />
       </Map>
     ) : (
