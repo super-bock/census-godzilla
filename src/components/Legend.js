@@ -3,9 +3,12 @@ import { MapControl, withLeaflet } from "react-leaflet";
 import L from "leaflet";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> d54d9bab... working class components
+=======
+>>>>>>> 1f47e911... showing chart
 class Legend extends MapControl {
   createLeafletElement(props) {}
 
@@ -13,6 +16,9 @@ class Legend extends MapControl {
 
   createLegend = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1f47e911... showing chart
     const div = L.DomUtil.create("div", "info legend");
     const grades = this.props.quantiles;
     const colors = this.props.colorRange;
@@ -31,6 +37,7 @@ class Legend extends MapControl {
     div.innerHTML = labels.join("<br>");
     return div;
   };
+<<<<<<< HEAD
 =======
       const div = L.DomUtil.create("div", "info legend");
       const grades = this.props.quantiles;
@@ -57,6 +64,8 @@ class Legend extends MapControl {
 
 
 >>>>>>> d54d9bab... working class components
+=======
+>>>>>>> 1f47e911... showing chart
 
   componentDidMount() {
     this.legend.onAdd = this.createLegend;
@@ -64,6 +73,7 @@ class Legend extends MapControl {
     this.legend.addTo(map);
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // this should only update the div
   componentDidUpdate() {
@@ -75,13 +85,20 @@ class Legend extends MapControl {
 =======
 // this should only update the div
   componentDidUpdate () {
+=======
+  // this should only update the div
+  componentDidUpdate() {
+>>>>>>> 1f47e911... showing chart
     const { map } = this.props.leaflet;
-    map.removeControl(this.legend)
+    map.removeControl(this.legend);
     this.legend.onAdd = this.createLegend;
     this.legend.addTo(map);
   }
+<<<<<<< HEAD
 
 >>>>>>> d54d9bab... working class components
+=======
+>>>>>>> 1f47e911... showing chart
 }
 
 export default withLeaflet(Legend);

@@ -83,6 +83,7 @@ import {
 import { censusRace } from "../data/ReferenceData.js";
 import { scaleQuantile } from "d3-scale";
 import DemoMapTooltip from "./DemoMapTooltip";
+<<<<<<< HEAD
 import DataContainer from "./DataContainer";
 import "leaflet/dist/leaflet.css";
 import US_counties from "../data/US_counties_5m";
@@ -269,8 +270,12 @@ import {
 import { scaleQuantile } from "d3-scale";
 >>>>>>> d54d9bab... working class components
 import DemoMapTooltip from "./DemoMapTooltip";
+=======
+import BarPlot from "./BarPlot";
+>>>>>>> 1f47e911... showing chart
 import "leaflet/dist/leaflet.css";
 import US_counties from "../data/US_counties_5m";
+//import US_tracts from "../data/";
 import Legend from "./Legend";
 import { polygon } from "@turf/turf";
 
@@ -280,6 +285,8 @@ const DemoMap = (props) => {
   const [isLoaded, setIsLoaded] = useState();
   const [items, setItems] = useState();
   const [variables, setVariables] = useState();
+  const [raceData, setRaceData] = useState();
+  const [mapVariable, setMapVariable] = useState();
   const [groupInfo, setGroupInfo] = useState();
   const [colorScale, setColorScale] = useState();
   const [quantiles, setQuantiles] = useState();
@@ -288,30 +295,6 @@ const DemoMap = (props) => {
 
   const mapRef = createRef();
   const layerRef = createRef();
-
-  const fetchData = (request) =>
-    fetch(request)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          const items = addData(US_counties, result.geoIdValue);
-          const coloScale = scaleQuantile()
-            .domain(items.map((d) => d.properties.dataValue))
-            .range(colorRange);
-          setQuantiles(coloScale.quantiles());
-          setVariables(result.variableInfo);
-          setGroupInfo(result.groupInfo);
-          setItems(items);
-          setColorScale(() => coloScale);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          console.log(error);
-          setError(error);
-        }
-      );
 
   const handleMove = () => {
     const map = mapRef.current.leafletElement;
@@ -329,8 +312,10 @@ const DemoMap = (props) => {
   };
 
   const updateColors = () => {
+    console.log("var", mapVariable);
+    console.log("items", items);
     const colorScale = scaleQuantile()
-      .domain(onScreen.map((d) => d.properties.dataValue))
+      .domain(onScreen.map((d) => d.properties.dataValue[mapVariable]))
       .range(colorRange);
     const quantiles = colorScale.quantiles(); //for legend
     setColorScale(() => colorScale);
@@ -344,26 +329,50 @@ const DemoMap = (props) => {
   useEffect(() => {
     //only run when variable has been selected
     if (props.selectedVar) {
-      const group = props.selectedVar.split("_")[0];
-      const variable = props.selectedVar.split("_")[1];
-      const request = createRequest(group, variable);
-      fetchData(request);
+      getMapData();
     }
-  }, [props]);
+  }, [props.selectedVar]);
 
   useEffect(() => {
     if (onScreen) {
       updateColors();
     }
   }, [onScreen]);
-  //  componentDidUpdate(prevProps, prevState) {
-  //if (this.state.onScreen !== prevState.onScreen) {
-  //this.updateColors();
-  //} else if (this.props.selectedVar !== prevProps.selectedVar) {
-  //const request = this.createRequest();
-  //this.fetchData(request);
-  //}
-  //  }
+
+  const getMapData = () => {
+    const group = props.selectedVar.split("_")[0];
+    const variable = props.selectedVar.split("_")[1];
+    setMapVariable(variable);
+    const request = createRequest(group, variable);
+
+    fetchCensusData(request).then((result) => {
+      const items = addData(US_counties, result.geoIdValue);
+      const coloScale = scaleQuantile()
+        .domain(items.map((d) => d.properties.dataValue[variable]))
+        .range(colorRange);
+      setQuantiles(coloScale.quantiles());
+      setVariables(result.variableInfo);
+      setGroupInfo(result.groupInfo);
+      setItems(items);
+      console.log(items);
+      setColorScale(() => coloScale);
+    });
+  };
+
+  const getRaceData = () => {
+    const raceTables = Object.keys(censusRace);
+    const request = createRequest("B03002", raceTables);
+    fetchCensusData(request).then((result) => {
+      let items = addData(US_counties, result.geoIdValue);
+      const targetItems = [];
+      for (let item of items) {
+        const itemCopy = { ...item };
+        targetItems.push(itemCopy.properties.dataValue);
+      }
+      const avgOfItems = avgObjects(targetItems);
+      setRaceData(targetItems);
+    });
+  };
 
   if (!isLoaded) {
     return <div>Loading...</div>;
@@ -383,6 +392,7 @@ const DemoMap = (props) => {
       >
         <TileLayer attribution={attribution} url={tileUrl} />
         <ZoomControl position="topright" />
+        <BarPlot />
       </Map>
     );
   } else {
@@ -416,7 +426,10 @@ const DemoMap = (props) => {
           data={items}
           style={(item) => {
             return {
-              fillColor: colorScale(item ? item.properties.dataValue : "#EEE"),
+              //? add variable to state to use here
+              fillColor: colorScale(
+                item ? item.properties.dataValue[mapVariable] : "#EEE"
+              ),
               fillOpacity: 0.5,
               weight: 0.5,
               opacity: 0.7,
@@ -450,6 +463,7 @@ const DemoMap = (props) => {
             };
           }}
         />
+        <BarPlot raceData={raceData} />
         <Legend quantiles={quantiles} colorRange={colorRange} />
       </Map>
     ) : (

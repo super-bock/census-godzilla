@@ -18,10 +18,13 @@
     "@turf/turf": "^5.1.6",
     "bootstrap": "^4.5.2",
     "d3": "^6.7.0",
+<<<<<<< HEAD
 =======
     "@turf/turf": "^5.1.6",
     "bootstrap": "^4.5.2",
 >>>>>>> 795bf6db... working map
+=======
+>>>>>>> 1f47e911... showing chart
     "d3-scale": "^3.2.1",
     "leaflet": "^1.6.0",
     "node-sass": "4.14",
