@@ -282,6 +282,8 @@ import { polygon } from "@turf/turf";
 const TitleBlock = ({ title }) => <div className="info title">{title}</div>;
 
 const DemoMap = (props) => {
+  const testing = true;
+
   const [isLoaded, setIsLoaded] = useState();
   const [items, setItems] = useState();
   const [variables, setVariables] = useState();
@@ -320,6 +322,7 @@ const DemoMap = (props) => {
 
   useEffect(() => {
     setIsLoaded(true);
+    if (testing) getMapData();
   }, []);
 
   useEffect(() => {
@@ -336,8 +339,10 @@ const DemoMap = (props) => {
   }, [onScreen]);
 
   const getMapData = () => {
-    const group = props.selectedVar.split("_")[0];
-    const variable = props.selectedVar.split("_")[1];
+    let group = "B03002";
+    let variable = "003E";
+    //  let group = props.selectedVar.split("_")[0];
+    //  let variable = props.selectedVar.split("_")[1];
     setMapVariable(variable);
     const request = createRequest(group, variable);
 
