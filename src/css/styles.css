@@ -26,8 +26,12 @@ body {
   line-height: 18px;
   color: #555;
   position: relative;
+<<<<<<< HEAD
   z-index: 1000
 >>>>>>> 795bf6db... working map
+=======
+  z-index: 1000;
+>>>>>>> bdf5a68e... swiper working
 }
 
 .title i {
@@ -150,11 +154,29 @@ body {
 
 /* bootstrap*/
 .form-group {
-    position: relative;
-    z-index:9999;
-    width: 20vw;
-    margin: 10px
+  position: relative;
+  z-index: 9999;
+  width: 20vw;
+  margin: 10px;
 }
 
+.swiper-container {
+  width: 500px;
+}
+
+<<<<<<< HEAD
 >>>>>>> 137be228... added controls
+<<<<<<< HEAD
 >>>>>>> 5fff9e88... added controls
+=======
+=======
+.swiper-pagination {
+  bottom: 0;
+  padding-bottom: 10px;
+}
+
+.swiper-wrapper {
+  padding-inline-start: 0;
+}
+>>>>>>> bdf5a68e... swiper working
+>>>>>>> 06c29d38... swiper working

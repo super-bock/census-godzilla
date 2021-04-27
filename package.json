@@ -46,6 +46,7 @@
     "react-scripts": "^3.4.3",
     "react-sidebar": "^3.0.2",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-simple-maps": "^2.1.2",
     "swiper": "^6.5.8"
 <<<<<<< HEAD
@@ -70,7 +71,14 @@
 >>>>>>> 795bf6db... working map
     "react-simple-maps": "^2.1.2"
 >>>>>>> 593e49ec... local data source
+<<<<<<< HEAD
 >>>>>>> ef8061a4... local data source
+=======
+=======
+    "react-simple-maps": "^2.1.2",
+    "swiper": "^6.5.8"
+>>>>>>> bdf5a68e... swiper working
+>>>>>>> 06c29d38... swiper working
   },
   "scripts": {
     "start": "react-scripts start",

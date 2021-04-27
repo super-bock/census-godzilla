@@ -84,6 +84,7 @@ import { censusRace } from "../data/ReferenceData.js";
 import { scaleQuantile } from "d3-scale";
 import DemoMapTooltip from "./DemoMapTooltip";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import DataContainer from "./DataContainer";
 import "leaflet/dist/leaflet.css";
 import US_counties from "../data/US_counties_5m";
@@ -273,6 +274,9 @@ import DemoMapTooltip from "./DemoMapTooltip";
 =======
 import BarPlot from "./BarPlot";
 >>>>>>> 1f47e911... showing chart
+=======
+import DataContainer from "./DataContainer";
+>>>>>>> bdf5a68e... swiper working
 import "leaflet/dist/leaflet.css";
 import US_counties from "../data/US_counties_5m";
 //import US_tracts from "../data/";
@@ -282,7 +286,7 @@ import { polygon } from "@turf/turf";
 const TitleBlock = ({ title }) => <div className="info title">{title}</div>;
 
 const DemoMap = (props) => {
-  const testing = true;
+  const testing = false;
 
   const [isLoaded, setIsLoaded] = useState();
   const [items, setItems] = useState();
@@ -378,7 +382,7 @@ const DemoMap = (props) => {
       >
         <TileLayer attribution={attribution} url={tileUrl} />
         <ZoomControl position="topright" />
-        <BarPlot />
+        <DataContainer />
       </Map>
     );
   } else {
@@ -449,7 +453,7 @@ const DemoMap = (props) => {
             };
           }}
         />
-        <BarPlot onScreen={onScreen} />
+        <DataContainer onScreen={onScreen} />
         <Legend quantiles={quantiles} colorRange={colorRange} />
       </Map>
     ) : (
