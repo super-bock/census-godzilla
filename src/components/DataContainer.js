@@ -7,6 +7,7 @@ import { fetchCensusData, createChartRequest } from "../helpers/Helpers";
 import { edVars, raceVars, CensusSummary } from "../data/ReferenceData.js";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const createSummaryData = (data, varMap, sumVars, reCalc) => {
   const summary = new CensusSummary(data, varMap);
   if (!reCalc) summary.mapDataToDescriptor();
@@ -28,6 +29,11 @@ const createSummaryData = (data, varMap, sumVars) => {
   const summary = new CensusSummary(data, varMap);
   summary.mapDataToDescriptor();
 >>>>>>> e6c28ef7... ed an race data in
+=======
+const createSummaryData = (data, varMap, sumVars, reCalc) => {
+  const summary = new CensusSummary(data, varMap);
+  if (!reCalc) summary.mapDataToDescriptor();
+>>>>>>> 52e2c31f... fixed some css
   summary.getTotals();
   Object.entries(sumVars).forEach(([key, valArr]) => {
     summary.sumShares(valArr, key);
@@ -108,6 +114,9 @@ const DataContainer = (props) => {
       );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 52e2c31f... fixed some css
       const raceSummary = createSummaryData(
         onScreenRace,
         raceVars,
@@ -118,6 +127,7 @@ const DataContainer = (props) => {
       );
       delete raceSummary.shares["Total"];
       setSummary((prevData) => ({ ...prevData, race: raceSummary.shares }));
+<<<<<<< HEAD
 
       const edSummary = createSummaryData(
         onScreenEd,
@@ -145,10 +155,27 @@ const DataContainer = (props) => {
       const raceSum = new CensusSummary(onScreenRace);
       raceSum.calcAverage();
       setSummary((prevData) => ({ ...prevData, race: raceSum.shares }));
+=======
+>>>>>>> 52e2c31f... fixed some css
 
-      const edSum = new CensusSummary(onScreenEd);
-      edSum.calcAverage();
-      setSummary((prevData) => ({ ...prevData, education: edSum.shares }));
+      const edSummary = createSummaryData(
+        onScreenEd,
+        edVars,
+        {
+          "High School": ["High School", "GED"],
+          "Some College": ["1 Y College", "1+ Y College", "Associates"],
+          Graduate: ["Master's", "Professional", "Doctorate"],
+        },
+        true
+      );
+      edSummary.shares["No Degree"] =
+        edSummary.shares["Total"] -
+        edSummary.shares["High School"] -
+        edSummary.shares["Some College"] -
+        edSummary.shares["Graduate"] -
+        edSummary.shares["Bachelor's"];
+      delete edSummary.shares["Total"];
+      setSummary((prevData) => ({ ...prevData, education: edSummary.shares }));
     }
   }, [props.onScreen]);
 

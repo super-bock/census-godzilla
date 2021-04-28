@@ -19,10 +19,14 @@
 
 .dataContainer {
 <<<<<<< HEAD
+<<<<<<< HEAD
   padding: 6px 20px;
 =======
   padding: 6px 8px;
 >>>>>>> e6c28ef7... ed an race data in
+=======
+  padding: 6px 20px;
+>>>>>>> 52e2c31f... fixed some css
   font: 14px/16px Arial, Helvetica, sans-serif;
   background: rgba(255, 255, 255, 0.8);
   /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
