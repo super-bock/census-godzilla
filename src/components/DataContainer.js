@@ -6,9 +6,28 @@ import ChartSwiper from "./Swiper";
 import { fetchCensusData, createChartRequest } from "../helpers/Helpers";
 import { edVars, raceVars, CensusSummary } from "../data/ReferenceData.js";
 
+<<<<<<< HEAD
 const createSummaryData = (data, varMap, sumVars, reCalc) => {
   const summary = new CensusSummary(data, varMap);
   if (!reCalc) summary.mapDataToDescriptor();
+=======
+const ZcreateSummaryData = (data, varMap, sumVars) => {
+  const summary = new CensusSummary(data, varMap);
+  summary.mapDataToDescriptor();
+  Object.entries(sumVars).forEach(([key, valArr]) => {
+    console.log(key, valArr);
+    summary.sumDataVars(valArr, key);
+    summary.delDataVars(valArr);
+    console.log("manip sum", summary);
+  });
+  summary.calcAverage();
+  return summary;
+};
+
+const createSummaryData = (data, varMap, sumVars) => {
+  const summary = new CensusSummary(data, varMap);
+  summary.mapDataToDescriptor();
+>>>>>>> e6c28ef7... ed an race data in
   summary.getTotals();
   Object.entries(sumVars).forEach(([key, valArr]) => {
     summary.sumShares(valArr, key);
@@ -88,6 +107,7 @@ const DataContainer = (props) => {
         }))
       );
 
+<<<<<<< HEAD
       const raceSummary = createSummaryData(
         onScreenRace,
         raceVars,
@@ -121,6 +141,19 @@ const DataContainer = (props) => {
   }, [props.onScreen]);
 
   return summary.race && summary.education && props.onScreen ? (
+=======
+      const raceSum = new CensusSummary(onScreenRace);
+      raceSum.calcAverage();
+      setSummary((prevData) => ({ ...prevData, race: raceSum.shares }));
+
+      const edSum = new CensusSummary(onScreenEd);
+      edSum.calcAverage();
+      setSummary((prevData) => ({ ...prevData, education: edSum.shares }));
+    }
+  }, [props.onScreen]);
+
+  return summary.race && summary.education ? (
+>>>>>>> e6c28ef7... ed an race data in
     <div id="dataContainer" className="dataContainer">
       <ChartSwiper data={summary} closeChart={closeChart} />
     </div>
