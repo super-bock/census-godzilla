@@ -58,6 +58,9 @@ const ChartSwiper = (props) => {
         >
           <div className="swiper-wrapper">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8f0ef436... clean up
             <div className="swiper-slide" id="race-chart" key={1} tag="li">
               <div className="swiper-title">Ethnicity</div>
             </div>
@@ -65,6 +68,7 @@ const ChartSwiper = (props) => {
               {" "}
               <div className="swiper-title">Education</div>
             </div>
+<<<<<<< HEAD
 =======
             <div
               className="swiper-slide"
@@ -79,6 +83,8 @@ const ChartSwiper = (props) => {
               tag="li"
             ></div>
 >>>>>>> e6c28ef7... ed an race data in
+=======
+>>>>>>> 8f0ef436... clean up
           </div>
         </Swiper>
       </React.Fragment>

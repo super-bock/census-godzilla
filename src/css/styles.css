@@ -87,7 +87,14 @@ body {
   float: left;
 >>>>>>> 124afb1d... getting ed data
   color: #555;
+<<<<<<< HEAD
 >>>>>>> 795bf6db... working map
+=======
+  padding: 15px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+>>>>>>> 8f0ef436... clean up
 }
 
 .legend i {
@@ -155,7 +162,7 @@ body {
   height: 15px;
 >>>>>>> 52e2c31f... fixed some css
   float: left;
-  margin-right: 8px;
+  margin-right: 4px;
   opacity: 0.7;
 }
 <<<<<<< HEAD
@@ -168,9 +175,11 @@ body {
 /* bootstrap*/
 .form-group {
   position: relative;
-  z-index: 9999;
+  z-index: 1001;
   width: 20vw;
-  margin: 10px;
+  margin: 15px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .swiper-container {
@@ -192,11 +201,18 @@ body {
   padding-inline-start: 0;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> bdf5a68e... swiper working
 <<<<<<< HEAD
 >>>>>>> 06c29d38... swiper working
 =======
 =======
+=======
+
+.swiper-slide {
+  text-align: center;
+}
+>>>>>>> 8f0ef436... clean up
 .swiper-button-prev {
   top: 30px !important;
   left: 380px !important;
@@ -209,5 +225,17 @@ body {
   position: absolute !important;
   color: #000 !important;
 }
+<<<<<<< HEAD
 >>>>>>> 124afb1d... getting ed data
+<<<<<<< HEAD
 >>>>>>> 9ad72ce6... getting ed data
+=======
+=======
+
+.swiper-title {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+}
+>>>>>>> 8f0ef436... clean up
+>>>>>>> 2262eb4c... clean up

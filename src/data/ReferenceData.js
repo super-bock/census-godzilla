@@ -57,6 +57,7 @@ export class CensusSummary {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   //  calcAverage() {
   //this.summaryData = this.avgOfObjects(Object.values(this.data));
   //  }
@@ -65,6 +66,11 @@ export class CensusSummary {
     this.summaryData = this.avgOfObjects(Object.values(this.data));
   }
 >>>>>>> e6c28ef7... ed an race data in
+=======
+  //  calcAverage() {
+  //this.summaryData = this.avgOfObjects(Object.values(this.data));
+  //  }
+>>>>>>> 8f0ef436... clean up
   //need to check if vars exist in data and error if not
   mapCodeToDescriptor(data) {
     return Object.assign(
@@ -73,11 +79,14 @@ export class CensusSummary {
       }))
     );
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     //    return Object.entries(this.summaryData).map(
     //([k, v]) => (this.summaryData[k] = 100)
     //    );
 >>>>>>> e6c28ef7... ed an race data in
+=======
+>>>>>>> 8f0ef436... clean up
   }
 
   sumShares(varList, newVar) {
@@ -89,17 +98,6 @@ export class CensusSummary {
       return acc;
     }, 0);
     this.shares[newVar] = newVal;
-  }
-
-  sumTotals(varList, newVar) {
-    const newVal = Object.entries(this.totals).reduce((acc, [k, v]) => {
-      if (varList.includes(k)) {
-        acc += v;
-        delete this.totals[k];
-      }
-      return acc;
-    }, 0);
-    this.totals[newVar] = newVal;
   }
 
   sumDataVars(varList, newVar) {

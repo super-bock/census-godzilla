@@ -20,10 +20,13 @@ const DataContainer = (props) => {
   const [incomeChart, setIncomeChart] = useState();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const handleChartChange = () => {
     console.log("changing");
 >>>>>>> e6c28ef7... ed an race data in
+=======
+>>>>>>> 8f0ef436... clean up
   };
   useEffect(() => {
     const raceTables = Object.keys(raceVars);

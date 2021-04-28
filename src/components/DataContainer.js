@@ -179,8 +179,12 @@ const DataContainer = (props) => {
     }
   }, [props.onScreen]);
 
+<<<<<<< HEAD
   return summary.race && summary.education ? (
 >>>>>>> e6c28ef7... ed an race data in
+=======
+  return summary.race && summary.education && props.onScreen ? (
+>>>>>>> 8f0ef436... clean up
     <div id="dataContainer" className="dataContainer">
       <ChartSwiper data={summary} closeChart={closeChart} />
     </div>
