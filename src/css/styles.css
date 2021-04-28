@@ -70,6 +70,7 @@ body {
   text-align: left;
   line-height: 18px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   float: left;
   color: #555;
   padding: 15px;
@@ -77,6 +78,9 @@ body {
   right: 20px;
   bottom: 20px;
 =======
+=======
+  float: left;
+>>>>>>> 124afb1d... getting ed data
   color: #555;
 >>>>>>> 795bf6db... working map
 }
@@ -178,5 +182,23 @@ body {
 .swiper-wrapper {
   padding-inline-start: 0;
 }
+<<<<<<< HEAD
 >>>>>>> bdf5a68e... swiper working
+<<<<<<< HEAD
 >>>>>>> 06c29d38... swiper working
+=======
+=======
+.swiper-button-prev {
+  top: 30px !important;
+  left: 430px !important;
+  position: absolute !important;
+  color: #000 !important;
+}
+
+.swiper-button-next {
+  top: 30px !important;
+  position: absolute !important;
+  color: #000 !important;
+}
+>>>>>>> 124afb1d... getting ed data
+>>>>>>> 9ad72ce6... getting ed data
