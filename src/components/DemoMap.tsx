@@ -202,8 +202,9 @@ const DemoMap = ({selectedVar}: {'selectedVar': string | null}) => {
 			.range(colorRange);
 
 		const quantiles = colorScale.quantiles(); //for legend
-		setColorScale(colorScale);
+		setColorScale(() => colorScale);
 		setQuantiles(quantiles);
+
 	};
 
 	useEffect(() => {
@@ -267,8 +268,6 @@ const DemoMap = ({selectedVar}: {'selectedVar': string | null}) => {
 			</Map>
 		);
 	} else {
-    console.log('Items:', items);
-    console.log('colorScale:', colorScale);
 
 		return items && colorScale ? (
 			<Map
