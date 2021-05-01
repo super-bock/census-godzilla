@@ -118,6 +118,7 @@ import {
 } from '../helpers/Helpers';
 import { attribution, colorRange, defaultMapState, tileUrl } from '../utils/Utils';
 // import DemoMapTooltip from "./DemoMapTooltip";
+<<<<<<< HEAD
 import DataContainer from './DataContainer';
 <<<<<<< HEAD
 import 'leaflet/dist/leaflet.css';
@@ -127,9 +128,12 @@ import US_counties from '../data/US_counties_5m.json';
 >>>>>>> 7f46c57f... Nearly done with DemoMap component
 //import US_tracts from "../data/";
 import Legend from './Legend';
+=======
+ import DataContainer from './DataContainer';
+// import US_tracts from "../data/";
+// import Legend from './Legend';
+>>>>>>> 16d165e0... Partially through TS refactor of ReferenceData
 
-//import GeoJsonObject from
-type CensusLabel = { [key: string]: string[] };
 
 interface MapReference {
   current: any; // FIXME this should not by any type
@@ -309,11 +313,11 @@ const DemoMap = ({selectedVar}: {'selectedVar': string | null}) => {
 						};
 					}}
 				/>
-				{/* <DataContainer onScreen={onScreen} />
-				<Legend quantiles={quantiles} colorRange={colorRange} /> */}
+				<DataContainer onScreen={onScreen} />
+      {/*<Legend quantiles={quantiles} colorRange={colorRange} /> */}
 			</Map>
 		) : (
-			<h2>Data is loading...</h2>
+			<h3>Data is loading...</h3>
 		);
 	}
 };
