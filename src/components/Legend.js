@@ -1,6 +1,6 @@
 // https://codesandbox.io/s/how-to-add-a-legend-to-the-map-using-react-leaflet-6yqs5?file=/src/Map.js
-import { MapControl, withLeaflet } from "react-leaflet";
-import L from "leaflet";
+import { MapControl, withLeaflet } from 'react-leaflet';
+import L from 'leaflet';
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -10,16 +10,20 @@ import L from "leaflet";
 =======
 >>>>>>> 1f47e911... showing chart
 class Legend extends MapControl {
-  createLeafletElement(props) {}
+  createLeafletElement() {}
 
-  legend = L.control({ position: "bottomright" });
+  legend = L.control({ position: 'bottomright' });
 
   createLegend = () => {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> 1f47e911... showing chart
     const div = L.DomUtil.create("div", "info legend");
+=======
+    const div = L.DomUtil.create('div', 'info legend');
+>>>>>>> 5011befb... Added Eslint, auto fixed errors
     const grades = this.props.quantiles;
     const colors = this.props.colorRange;
     let labels = [];
@@ -30,11 +34,11 @@ class Legend extends MapControl {
       from = parseInt(grades[i]);
       to = grades[i + 1];
       labels.push(
-        '<i style="background:' + colors[i] + '"></i> ' + from + (to ? "" : "+")
+        '<i style="background:' + colors[i] + '"></i> ' + from + (to ? '' : '+')
       );
     }
 
-    div.innerHTML = labels.join("<br>");
+    div.innerHTML = labels.join('<br>');
     return div;
   };
 <<<<<<< HEAD
