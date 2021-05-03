@@ -2,6 +2,7 @@
 import { MapControl, withLeaflet } from 'react-leaflet';
 import L from 'leaflet';
 
+<<<<<<< HEAD:src/components/Legend.js
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -10,11 +11,22 @@ import L from 'leaflet';
 =======
 >>>>>>> 1f47e911... showing chart
 class Legend extends MapControl {
+=======
+type Props = {
+  quantiles:number[] | undefined;
+  colorRange:string[];
+  leaflet: any;
+}
+class Legend extends MapControl<Props> {
+  //@ts-ignore
+>>>>>>> 73252f99... Feat: Legend:src/components/Legend.tsx
   createLeafletElement() {}
 
+  //@ts-ignore
   legend = L.control({ position: 'bottomright' });
 
   createLegend = () => {
+<<<<<<< HEAD:src/components/Legend.js
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -25,13 +37,18 @@ class Legend extends MapControl {
     const div = L.DomUtil.create('div', 'info legend');
 >>>>>>> 5011befb... Added Eslint, auto fixed errors
     const grades = this.props.quantiles;
+=======
+
+    const div = L.DomUtil.create('div', 'info legend');
+    const grades = (this.props.quantiles)? this.props.quantiles:[];
+>>>>>>> 73252f99... Feat: Legend:src/components/Legend.tsx
     const colors = this.props.colorRange;
-    let labels = [];
+    const labels = [];
     let from;
     let to;
 
-    for (let i = 0; i < grades.length; i++) {
-      from = parseInt(grades[i]);
+    for (let i = 0; i < grades?.length; i++) {
+      from = Math.floor(grades[i]);
       to = grades[i + 1];
       labels.push(
         '<i style="background:' + colors[i] + '"></i> ' + from + (to ? '' : '+')
@@ -72,8 +89,9 @@ class Legend extends MapControl {
 >>>>>>> 1f47e911... showing chart
 
   componentDidMount() {
-    this.legend.onAdd = this.createLegend;
+
     const { map } = this.props.leaflet;
+    this.legend.onAdd = this.createLegend;
     this.legend.addTo(map);
   }
 

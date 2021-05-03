@@ -27,14 +27,12 @@ const ChartSwiper = (props: SummeryData) => {
 
   useEffect(() => {
     if (props.data) {
-      console.log('🌊',props.data);
       setRaceChart(drawChart(props.data.race, '#race-chart'));
       setEdChart(drawChart(props.data.education, '#education-chart'));
     }
   }, []);
 
   useEffect(() => {
-    console.log('updating');
     if (raceChart) {
       // Here we take steps to correct any errors in the data before we pass it to the chart
       const currentValue = Object.assign(
@@ -50,7 +48,6 @@ const ChartSwiper = (props: SummeryData) => {
       for (const key in currentValue) {
         if (!currentValue[key]) currentValue[key] = 0;
       }
-      console.log('🛹', currentValue);
       raceChart.update(currentValue);
     }
     if (edChart) {
@@ -58,7 +55,7 @@ const ChartSwiper = (props: SummeryData) => {
       const currentValue = Object.assign(
         {
           'Bachelor\'s': 0,
-          Graduate: 0,
+          'Graduate': 0,
           'High School': 0,
           'No Degree': 0,
           'Some College': 0,
@@ -68,11 +65,11 @@ const ChartSwiper = (props: SummeryData) => {
       for (const key in currentValue) {
         if (!currentValue[key]) currentValue[key] = 0;
       }
-      console.log('🛹', currentValue);
       edChart.update(currentValue);
     }
   }, [props.data]);
 
+<<<<<<< HEAD
   //  useEffect(() => {
   //console.log(props.closeChart);
   //props.closeChart
@@ -84,16 +81,21 @@ const ChartSwiper = (props: SummeryData) => {
 <<<<<<< HEAD
 =======
 >>>>>>> 5011befb... Added Eslint, auto fixed errors
+=======
+>>>>>>> 73252f99... Feat: Legend
   if (props) {
     return (
       <React.Fragment>
         <Swiper
           id="main"
+<<<<<<< HEAD
           //thumbs={{ swiper: thumbsSwiper }}
           //controller={{ control: controlledSwiper }}
 <<<<<<< HEAD
           data-tag="section"
 =======
+=======
+>>>>>>> 73252f99... Feat: Legend
           tag="section"
 >>>>>>> 5011befb... Added Eslint, auto fixed errors
           wrapperTag="ul"
