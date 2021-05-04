@@ -232,5 +232,4 @@ const ChartSwiper = ({ data, setShowDataContainer }: SummeryData) => {
 	);
 >>>>>>> 73eba49d... Fix: Increased stability of DataContainer and Swiper
 };
-
 export default ChartSwiper;
