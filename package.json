@@ -27,6 +27,7 @@
 =======
 >>>>>>> 1f47e911... showing chart
     "d3-scale": "^3.2.1",
+    "jest-fetch-mock": "^3.0.3",
     "leaflet": "^1.6.0",
     "node-sass": "4.14",
     "react": "^16.13.1",

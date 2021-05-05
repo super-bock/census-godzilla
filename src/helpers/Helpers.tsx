@@ -325,7 +325,11 @@ function wrap(text, width) {
 		group +
 		'&state=36&county=*&geography=county&key=32dd72aa5e814e89c669a4664fd31dcfc3df333d&variable=' +
 		variable;
+<<<<<<< HEAD
 >>>>>>> 73252f99... Feat: Legend
+=======
+    
+>>>>>>> ad71aa24... more tests added
   return request;
 };
 
