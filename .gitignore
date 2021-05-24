@@ -1,8 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 06c29d38... swiper working
+=======
+>>>>>>> 378131cb... merge
 .DS_Store
 
 # Logs
@@ -22,7 +25,7 @@ lib-cov
 coverage
 
 # Dependency directories
-node_modules
+node_modules/
 
 # Optional npm cache directory
 .npm
@@ -34,6 +37,7 @@ node_modules
 private
 build
 dist
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -79,12 +83,15 @@ build
 dist
 >>>>>>> bdf5a68e... swiper working
 >>>>>>> 06c29d38... swiper working
+=======
+>>>>>>> 378131cb... merge
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 .todo
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -112,9 +119,14 @@ yarn-error.log*
 >>>>>>> fa7489e9... working class components
 =======
 =======
+=======
+>>>>>>> 378131cb... merge
 #vim
 *.swp
 *.swo
 *.*~
+<<<<<<< HEAD
 >>>>>>> bdf5a68e... swiper working
 >>>>>>> 06c29d38... swiper working
+=======
+>>>>>>> 378131cb... merge
